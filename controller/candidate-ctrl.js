@@ -1,5 +1,37 @@
 const Model = require('../model/candidate')
 
+
+max =(req,res)=>{
+const body = rea.body
+if(!body){
+    return res,status(400).json({
+        success:false,
+        error:"maximum does;nt exist"
+    })
+}
+
+const model = new Model(body)
+if(!model){
+    return res.status(400).json({success:false,error:err})
+}
+model
+.find().sort({first_round}).limit(1)
+.then(()=>{
+    return res.status(201).json({success:true,
+    id:email.id,
+    message:'date created'})
+})
+.catch(error=>{
+    return res.status(400).json({
+        error:true,
+        message:"not a max value"
+    })
+})
+
+
+}
+
+
 createm = (req,res)=>{
     const body = req.body
 
@@ -123,5 +155,5 @@ module.export={
     updatem,
     deletem,
     getmodelbyid,
-    getmodels
+    getmodels,max
 }

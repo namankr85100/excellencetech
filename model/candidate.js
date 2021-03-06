@@ -7,6 +7,10 @@ const Candidate = new Schema(
         name:{type:String ,required : true},
         email : {type : String , required : true},
         address:{type:String , required:false},
+        test_scores:{
+                        type:Schema.Types.ObjectId,
+                        ref:"Test_Score"                
+                    }
 
     },
     {timestamps:true},
